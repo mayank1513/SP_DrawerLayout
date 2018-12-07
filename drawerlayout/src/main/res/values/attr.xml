@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Drawer">
+        <attr name="drawerWidth" format="dimension" />
+        <attr name="onRightEdge" format="boolean"/>
+        <attr name="drawerBackground" format="reference|color"/>
+    </declare-styleable>
+</resources>
