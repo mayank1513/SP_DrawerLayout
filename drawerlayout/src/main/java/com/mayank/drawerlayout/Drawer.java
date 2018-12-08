@@ -56,7 +56,6 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
         setBackgroundColor(Color.argb(0,0,0,0));
         addView(view, 0);
         setOnTouchListener(this);
-        if(bg == null) bg = (View) getParent();
         collapse();
     }
 
@@ -71,6 +70,7 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
 
     public void setShadowingBackground(View view){
         bg = view;
+        bg.setAlpha(0);
     }
 
     @Override
@@ -97,7 +97,6 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
     @Override
     public boolean onTouch(View view, MotionEvent ev) {
         int action = ev.getAction();
-        if(bg == null) bg = (View) getParent();
         if(action == MotionEvent.ACTION_DOWN){
             downX = ev.getRawX();
             dX = this.getX() - downX;
@@ -110,9 +109,9 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
         } else if(action == MotionEvent.ACTION_UP) {
             float upRawX = ev.getRawX();
             if(direction==1? downX >drawerWidth : downX < getWidth() - drawerWidth) collapse();
-            else if (direction*(upRawX- downX) > 10*CLICK_DRAG_TOLERANCE) expand();
-            else if(direction*(downX -upRawX) > 10*CLICK_DRAG_TOLERANCE) collapse();
-            else if(Math.abs(this.getX()) > drawerWidth) collapse();
+            else if (direction*(upRawX- downX) > 20*CLICK_DRAG_TOLERANCE) expand();
+            else if(direction*(downX -upRawX) > 20*CLICK_DRAG_TOLERANCE) collapse();
+            else if(Math.abs(this.getX()) > drawerWidth - 4*dp10) collapse();
             else expand();
         }
         return true;
