@@ -8,6 +8,7 @@ This is a lightweight drawer layout. If you want to reduce your app-size by avoi
 3. Complete freedom to design your drawer with headers, footers, lists, scrolls, etc.
 4. Choose the overlay that appears behind the drawer when drawer is pulled open.
 5. Completely open source
+6. Tiny size. Reduces a lot of burden and overhead that would otherwise be on your app.
 
 Please vote the anser here if this helps you - https://stackoverflow.com/a/53629344/9640177
 
@@ -65,11 +66,11 @@ If you want to Customize the background you can do it in your java file.
      drawer.setShadowingBackground(findViewById(R.id.dBackground));
      
 # Methods available
-1. expand() to expand the drawer programatically say when button is touched or title bar is touched.
-2. collapse() to collapse the drawer programatically, for example, after an oprion is clicked from inside the drawer.
-3. isCollapsed() to check if the drawer is collapsed.
-4. disableDrawer() to disable drawer in case you want the drawer to not expand on swipe from edge while displaying some items.
-5. setShadowingBackground(View view) to set your custom background - replace the dark semitransperent view that appears behind drawer and overlays your other views.
+1. **expand()** to expand the drawer programatically say when button is touched or title bar is touched.
+2. **collapse()** to collapse the drawer programatically, for example, after an oprion is clicked from inside the drawer.
+3. **isCollapsed()** to check if the drawer is collapsed.
+4. **disableDrawer()** to disable drawer in case you want the drawer to not expand on swipe from edge while displaying some items.
+5. **setShadowingBackground(View view)** to set your custom background - replace the dark semitransperent view that appears behind drawer and overlays your other views.
 
 For best experience add drawer layout as the last child of you layout.
   
