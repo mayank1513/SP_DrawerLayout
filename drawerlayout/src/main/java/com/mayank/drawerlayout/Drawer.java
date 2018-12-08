@@ -57,6 +57,7 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
         setBackgroundColor(Color.argb(0,0,0,0));
         addView(view, 0);
         setOnTouchListener(this);
+        setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         collapse();
     }
 
@@ -70,6 +71,7 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
     }
 
     public void setShadowingBackground(View view){
+        if(bg!=null) bg.setAlpha(0);
         bg = view;
         bg.setAlpha(0);
     }
@@ -147,7 +149,7 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
         if(bg!=null) bg.animate().alpha(0).setDuration(0).start();
     }
 
-    public void peep(){
+    private void peep(){
         if(this.getX()!=0) {
             float newX = direction*(-drawerWidth + 2 * dp10);
             this.animate().x(newX).setDuration(animDuration).start();
