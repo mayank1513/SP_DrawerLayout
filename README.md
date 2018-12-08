@@ -37,7 +37,9 @@ Now you need to add custom xmlns to the xml layout file where you want to add th
 
     <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-      <b>xmlns:custom="http://schemas.android.com/apk/res-auto"</b>
+    
+      xmlns:custom="http://schemas.android.com/apk/res-auto"
+    
       android:orientation="vertical"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
@@ -49,9 +51,10 @@ Now you can define your layout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        <b>custom:drawerBackground="@color/colorAccent"</b>
-        <b>custom:drawerWidth="250dp"</b>
-        <b>custom:onRightEdge="false"</b>>
+        
+        custom:drawerBackground="@color/colorAccent"</b>
+        custom:drawerWidth="250dp"
+        custom:onRightEdge="false">
         
     </com.mayank.drawerlayout.Drawer>
     
