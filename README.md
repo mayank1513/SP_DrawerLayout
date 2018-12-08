@@ -59,6 +59,11 @@ Now you can define your layout
         
     </com.mayank.drawerlayout.Drawer>
     
+If you are not happy with the behavior, you can use sensitivity attribute that increases drag sensitivity. And the direction sensitivity will be helpful if you are placing scrollview or listview inside the drawer.
+ You can set it in xml like 
+ 
+      custom:sensitivity = "2"
+      custom:direction_sensitivity = "1"
 Make sure to set layout_width and and layout_height to match parent. 
 If you want to Customize the background you can do it in your java file.
      
