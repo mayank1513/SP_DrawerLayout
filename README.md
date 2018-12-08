@@ -66,11 +66,11 @@ If you want to Customize the background you can do it in your java file.
      drawer.setShadowingBackground(findViewById(R.id.dBackground));
      
 # Methods available
-1. expand() to expand the drawer programatically say when button is touched or title bar is touched.
-2. collapse() to collapse the drawer programatically, for example, after an oprion is clicked from inside the drawer.
-3. isCollapsed() to check if the drawer is collapsed.
-4. disableDrawer() to disable drawer in case you want the drawer to not expand on swipe from edge while displaying some items.
-5. setShadowingBackground(View view) to set your custom background - replace the dark semitransperent view that appears behind drawer and overlays your other views.
+1. **expand()** to expand the drawer programatically say when button is touched or title bar is touched.
+2. **collapse()** to collapse the drawer programatically, for example, after an oprion is clicked from inside the drawer.
+3. **isCollapsed()** to check if the drawer is collapsed.
+4. **disableDrawer()** to disable drawer in case you want the drawer to not expand on swipe from edge while displaying some items.
+5. **setShadowingBackground(View view)** to set your custom background - replace the dark semitransperent view that appears behind drawer and overlays your other views.
 
 For best experience add drawer layout as the last child of you layout.
   
