@@ -52,12 +52,13 @@ Now you can define your layout
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         
-        custom:drawerBackground="@color/colorAccent"</b>
+        custom:drawerBackground="@color/colorAccent"
         custom:drawerWidth="250dp"
         custom:onRightEdge="false">
         
     </com.mayank.drawerlayout.Drawer>
     
+Make sure to set layout_width and and layout_height to match parent. 
 If you want to Customize the background you can do it in your java file.
      
      drawer = findViewById(R.id.drawer);
