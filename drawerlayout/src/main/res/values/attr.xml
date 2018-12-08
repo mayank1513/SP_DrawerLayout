@@ -4,5 +4,7 @@
         <attr name="drawerWidth" format="dimension" />
         <attr name="onRightEdge" format="boolean"/>
         <attr name="drawerBackground" format="reference|color"/>
+        <attr name="sensitivity" format="float"/>
+        <attr name="direction_sensitivity" format="float"/>
     </declare-styleable>
 </resources>

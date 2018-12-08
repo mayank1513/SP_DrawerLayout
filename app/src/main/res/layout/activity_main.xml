@@ -39,6 +39,8 @@
         android:background="@color/colorPrimary"
         custom:drawerBackground="@color/colorAccent"
         custom:drawerWidth="250dp"
+        custom:sensitivity="1"
+        custom:direction_sensitivity="1"
         custom:onRightEdge="false">
 
         <FrameLayout

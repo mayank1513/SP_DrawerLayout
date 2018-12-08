@@ -13,13 +13,13 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 public class Drawer extends RelativeLayout implements View.OnTouchListener{
-    public static final float CLICK_DRAG_TOLERANCE = 10;
+    private static float CLICK_DRAG_TOLERANCE = 10;
     private float downX, downY, dX, drawerWidth;
     private View bg = null;
     private float alphaMax = 1;
     private int scrollDirection = 0, direction = 1, animDuration = 300;
     final public static int Horizontal = 1, Vertical = 2;
-    private float dp10;
+    private float dp10, sensitivity, directionSensitivity;
     private Context context;
 
     public Drawer(Context context, AttributeSet attrs) {
@@ -29,6 +29,7 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
         ((Activity)context).getWindowManager().getDefaultDisplay().getSize(size);
         float size_x = size.x;
         dp10 = getResources().getDimensionPixelSize(R.dimen.dp10);
+        CLICK_DRAG_TOLERANCE = dp10/3;
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.Drawer, 0, 0);
         drawerWidth = 30*dp10;
         Drawable background;
@@ -36,6 +37,10 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
             direction = a.getBoolean(R.styleable.Drawer_onRightEdge, false)?-1:1;
             drawerWidth = a.getDimension(R.styleable.Drawer_drawerWidth, 30*dp10);
             background = a.getDrawable(R.styleable.Drawer_drawerBackground);
+            sensitivity = a.getFloat(R.styleable.Drawer_sensitivity, 1);
+            directionSensitivity = a.getFloat(R.styleable.Drawer_direction_sensitivity, 1);
+            if(sensitivity == 0) sensitivity = 1;
+            if(directionSensitivity == 0) directionSensitivity = 1;
         } finally {
             a.recycle();
         }
@@ -87,8 +92,8 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
             peep();
         } else if(action == MotionEvent.ACTION_MOVE){
             if(scrollDirection == 0) {
-                scrollDirection = Math.abs(ev.getRawX() - downX) > CLICK_DRAG_TOLERANCE ? Horizontal
-                        : Math.abs(ev.getRawY() - downY) > CLICK_DRAG_TOLERANCE ? Vertical : 0;
+                scrollDirection = Math.abs(ev.getRawX() - downX) > CLICK_DRAG_TOLERANCE/directionSensitivity ? Horizontal
+                        : Math.abs(ev.getRawY() - downY) > CLICK_DRAG_TOLERANCE/directionSensitivity ? Vertical : 0;
             } else if(scrollDirection == Horizontal){
                 return onTouch(this, ev);
             }
@@ -121,9 +126,9 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
         } else if(action == MotionEvent.ACTION_UP) {
             float upRawX = ev.getRawX();
             if(direction==1? downX >drawerWidth : downX < getWidth() - drawerWidth) collapse();
-            else if (direction*(upRawX- downX) > 20*CLICK_DRAG_TOLERANCE) expand();
-            else if(direction*(downX -upRawX) > 20*CLICK_DRAG_TOLERANCE) collapse();
-            else if(Math.abs(this.getX()) > drawerWidth - 4*dp10) collapse();
+            else if (direction*(upRawX- downX) > 5*CLICK_DRAG_TOLERANCE/sensitivity) expand();
+            else if(direction*(downX -upRawX) > 5*CLICK_DRAG_TOLERANCE/sensitivity) collapse();
+            else if(Math.abs(this.getX()) > drawerWidth - 3*dp10) collapse();
             else expand();
         }
         return true;
