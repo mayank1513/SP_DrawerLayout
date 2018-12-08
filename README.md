@@ -8,6 +8,7 @@ This is a lightweight drawer layout. If you want to reduce your app-size by avoi
 3. Complete freedom to design your drawer with headers, footers, lists, scrolls, etc.
 4. Choose the overlay that appears behind the drawer when drawer is pulled open.
 5. Completely open source
+6. Tiny size. Reduces a lot of burden and overhead that would otherwise be on your app.
 
 Please vote the anser here if this helps you - https://stackoverflow.com/a/53629344/9640177
 
