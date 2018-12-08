@@ -27,11 +27,12 @@
             android:textStyle="bold"
             android:typeface="serif" />
     </FrameLayout>
-
+<!-- if you want to add custom background
     <FrameLayout android:id="@+id/dBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#B0000000"/>
+        android:alpha="0"
+        android:background="#B0000000"/>-->
     <com.mayank.drawerlayout.Drawer android:id="@+id/drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

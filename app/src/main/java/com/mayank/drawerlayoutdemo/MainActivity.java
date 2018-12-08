@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         drawer = findViewById(R.id.drawer);
-        drawer.setShadowingBackground(findViewById(R.id.dBackground));
+//        drawer.setShadowingBackground(findViewById(R.id.dBackground)); if you want to add custom background
         findViewById(R.id.app_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

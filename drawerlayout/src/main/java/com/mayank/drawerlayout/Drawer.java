@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 public class Drawer extends RelativeLayout implements View.OnTouchListener{
@@ -97,6 +98,15 @@ public class Drawer extends RelativeLayout implements View.OnTouchListener{
     @Override
     public boolean onTouch(View view, MotionEvent ev) {
         int action = ev.getAction();
+        if(bg == null){
+            View view1 = new View(context);
+            view1.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+            view1.setBackgroundColor(Color.argb(150,0,0,0));
+            view1.setAlpha(0);
+            ViewGroup parent = (ViewGroup) getParent();
+            parent.addView(view1, parent.indexOfChild(this));
+            bg = view1;
+        }
         if(action == MotionEvent.ACTION_DOWN){
             downX = ev.getRawX();
             dX = this.getX() - downX;
